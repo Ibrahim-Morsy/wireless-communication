@@ -1,17 +1,1 @@
-function [Y_MMSE_SIC_perTimeSlot] = MMSE_SIC_receiver(Y_perTimeSlot,channelPerTimeSlot,Q_MMSE,Mt,alpha)
-
-Y_MMSE_SIC_perTimeSlot=zeros(  Mt ,1);
-X_hat=Q_MMSE*Y_perTimeSlot;
-[strongest idx]=max(X_hat);
-Y_hat=Y_perTimeSlot-channelPerTimeSlot(:,idx)*strongest;
-Y_MMSE_SIC_perTimeSlot(idx)=strongest;
-
-channelPerTimeSlot
-
-I=eye(Mt);
-Q_MMSE_hat=(channelPerTimeSlot'*channelPerTimeSlot+(alpha)*I)\channelPerTimeSlot';
-
-
-
-end
 
